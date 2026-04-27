@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NubMetrics - Anúncios</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <i class="fas fa-chart-line"></i>
+        <span>NubMetrics</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/dashboard.html" class="nav-item"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/vendas.html" class="nav-item"><i class="fas fa-shopping-bag"></i> Vendas</a>
+        <a href="/produtos.html" class="nav-item"><i class="fas fa-box"></i> Produtos</a>
+        <a href="/anuncios.html" class="nav-item active"><i class="fas fa-tag"></i> Anúncios</a>
+        <a href="/perguntas.html" class="nav-item"><i class="fas fa-question-circle"></i> Perguntas</a>
+        <a href="/relatorios.html" class="nav-item"><i class="fas fa-chart-bar"></i> Relatórios</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="/auth/logout" class="nav-item"><i class="fas fa-sign-out-alt"></i> Sair</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="btn-menu" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+        <h2>Anúncios</h2>
+        <span id="userName" class="user-name"></span>
+      </header>
+
+      <section class="content-card">
+        <div class="filters">
+          <input type="text" id="buscaAnuncio" placeholder="Buscar anúncio..."/>
+          <select id="filtroStatusAnuncio">
+            <option value="">Todos os status</option>
+            <option value="active">Ativo</option>
+            <option value="paused">Pausado</option>
+          </select>
+          <button onclick="filtrarAnuncios()">Filtrar</button>
+        </div>
+
+        <div id="listaAnuncios" class="cards-anuncios"></div>
+        <div id="paginacaoAnuncios" class="paginacao"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/anuncios.js"></script>
+</body>
+</html>
