@@ -14,12 +14,19 @@
       <h1>NubMetrics</h1>
       <p>Inteligência de dados para o Mercado Livre</p>
     </div>
+
     <div class="login-card">
       <h2>Bem-vindo</h2>
       <p>Conecte sua conta do Mercado Livre para acessar seu painel de analytics.</p>
+
       <a href="/auth/login" class="btn-ml">
         <i class="fas fa-shopping-cart"></i> Entrar com Mercado Livre
       </a>
+
+      <button id="btnDemo" class="btn-demo" type="button">
+        <i class="fas fa-user"></i> Entrar como demo
+      </button>
+
       <div class="login-features">
         <div class="feature"><i class="fas fa-chart-bar"></i><span>Análise de Vendas</span></div>
         <div class="feature"><i class="fas fa-users"></i><span>Monitorar Concorrentes</span></div>
@@ -28,5 +35,13 @@
       </div>
     </div>
   </div>
+
+  <script src="/js/auth.js"></script>
+  <script>
+    document.getElementById('btnDemo')?.addEventListener('click', () => {
+      localStorage.setItem('nubmetrics_auth', 'demo');
+      window.location.href = '/dashboard.html';
+    });
+  </script>
 </body>
 </html>
