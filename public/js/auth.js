@@ -1,23 +1,19 @@
 async function checkAuth() {
-  const res = await fetch('/auth/status');
-  const data = await res.json();
-  if (!data.authenticated) { window.location.href = '/'; return null; }
-  return data;
+  const auth = localStorage.getItem('nubmetrics_auth');
+  if (!auth) {
+    window.location.href = '/';
+    return null;
+  }
+  return { authenticated: true, mode: auth };
 }
 
 function toggleSidebar() {
-  document.querySelector('.sidebar').classList.toggle('open');
+  document.querySelector('.sidebar')?.classList.toggle('open');
 }
 
 async function loadUserName() {
-  try {
-    const res = await fetch('/api/me');
-    if (res.ok) {
-      const data = await res.json();
-      const el = document.getElementById('userName');
-      if (el) el.textContent = data.nickname || data.first_name || 'Usuário';
-    }
-  } catch(e) {}
+  const el = document.getElementById('userName');
+  if (el) el.textContent = 'Demo';
 }
 
 function formatMoney(v) {
@@ -39,6 +35,11 @@ function statusBadge(s) {
   };
   const cls = (s === 'paid' || s === 'confirmed') ? 'badge-paid' : s === 'cancelled' ? 'badge-cancelled' : 'badge-pending';
   return `<span class="badge ${cls}">${map[s] || s}</span>`;
+}
+
+function logout() {
+  localStorage.removeItem('nubmetrics_auth');
+  window.location.href = '/';
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
