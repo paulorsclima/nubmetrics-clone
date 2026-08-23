@@ -166,7 +166,7 @@ Projeto desenvolvido para fins de estudo, demonstração técnica e composição
 Desenvolvido por **Paulo Ricardo S. C. Lima**.
 
 - GitHub: [@paulorsclima](https://github.com/paulorsclima)
-- LinkedIn: [Paulo Ricardo Cardoso Lima](www.linkedin.com/in/paulo-ricardo-cardoso-a134131a6)
+- LinkedIn: www.linkedin.com/in/paulo-ricardo-cardoso-a134131a6
 
 
 
